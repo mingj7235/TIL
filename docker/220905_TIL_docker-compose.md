@@ -20,7 +20,7 @@ services:   # 2
     volumes:    # 8
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/servers:/etc/nginx/conf.d
-    command: [ nginx-debug, '-g', 'daemon off;' ]   #9
+    command: [ nginx-debug, '-g', 'daemon off;' ]   # 9
 
 ```
 
