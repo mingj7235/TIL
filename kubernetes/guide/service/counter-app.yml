@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter
+spec:
+  selector:
+    matchLabels:
+      app: counter
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: counter
+        tier: app
+    spec:
+      containers:
+        - name: counter
+          image: ghcr.io/subicura/counter:latest
+          env:
+            - name: REDIS_HOST
+              value: "redis" # redis 라는 이름의 서비스를 만들었고, 그 서비스를 내부의 pod 과 연결시켜놓았기 때문에, pod 내부에서 service와 연결이 되고, 그 service가 redis pod과 연결시켜준다. 
+            - name: REDIS_PORT
+              value: "6379"
