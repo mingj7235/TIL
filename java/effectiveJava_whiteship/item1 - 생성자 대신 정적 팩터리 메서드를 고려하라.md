@@ -2,7 +2,7 @@
 
 ## 장점 
 
-- 이름을 가질 수 있다. 
+1.  이름을 가질 수 있다. 
 
     - 생성자로는 이렇게 사용 못함 ㅎㅅㅎ...
 
@@ -24,7 +24,7 @@
 
         ```
 
-    - 정적 팩터리 메서드를 통해 명확히 역할이 무엇인지 알게된다. 
+    -  정적 팩터리 메서드를 통해 명확히 역할이 무엇인지 알게된다. 
 
         ```java
             public static Order primeOrder(Product product) {
@@ -51,7 +51,7 @@
 <br>
 
 
-- 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.
+2.  호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.
 
     - public 생성자를 통해 인스턴스를 생성한다면 컨트롤 할 수 없다.
 
@@ -77,7 +77,9 @@
     ```
 
 
-   -  하지만, private으로 생성자를 선언하고, 정적 펙토리 메소드로 제공하면 통제가 가능하다.
+    -  하지만, private으로 생성자를 선언하고, 정적 펙토리 메소드로 제공하면 통제가 가능하다.
+    
+    <br>
 
     ```yaml
     me.whiteship.chapter01.item01.Settings@22f71333
@@ -86,12 +88,78 @@
     -> 인스턴스의 주소가 동일하다.
     ```
 
+<br>
 
-- 반환 타입의 하위 타입 객체를 반환할 수 있다. 
+3. 반환 타입의 하위 타입 객체를 반환할 수 있다. 
 
-- 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.
+    - 가령, 인터페이스를 리턴하는 ``반환 타입을 상위 클래스``를 하고,
+    <br>
+        실제로 리턴할 때는 ``구현체를 리턴``해줄 수도 있다.
 
-- 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.
+    ```java
+
+        // HelloService 는 인스턴스이고, 
+        // KoreanHelloService 와 EnglishHelloService 는 구현체다.
+        public static HelloService of (String args) {
+            if (args.equals("ko")) {
+                return new KoreanHelloService();
+            } else {
+                return new EnglishHelloService();
+            }
+        }
+    ```
+
+
+<br>
+
+4.  입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.
+    
+    > 3번과 장점과 연관되어 클래스의 객체를 유연하게 가져갈 수 있다.
+
+    ```java
+            HelloService eng = HelloService.of("eng");
+            HelloService ko = HelloService.of("ko");
+
+            System.out.println(eng.hello()); // hello
+            System.out.println(ko.hello()); // 안녕하세요
+
+    ```
+
+
+5.  정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.
+
+    - 이 부분이 이해하기 좀 어려움 ... !
+
+    ```java
+
+        // HelloService 인터페이스를 구현하고 있는 구현체가 없는 상황
+
+        // HelloService 에 구현되어 있는 모든 클래스를 찾아온다.
+        ServiceLoader<HelloService> loader 
+                        = ServiceLoader.load(HelloService.class);
+        
+        // 첫번째 구현된 클래스를 가지고 온다.
+        Optional<HelloService> helloServiceOptional = loader.findFirst();
+        
+
+        helloServiceOptional.ifPresent(h -> {
+            System.out.println(h.hello());
+        }); // Ni Hao 가 출력된다.
+    ```
+
+    - 굳이 아래와 같이 왜 안함?
+
+    ```java
+        ChineseHelloService helloService = new ChineseHelloService();
+        System.out.println(helloService.hello());
+    ```
+
+    >  이유 : ChineseHelloService 에 의존적이게 된다.
+    <br> import를 해야만 구현이 가능하다. 
+
+
+    어떤 구현체가 올지 모르지만, 유연함을 위해 상위 인터페이스만을 사용하여 코드를 작성해야할 때, 
+    이런 방식을 활용하면 ``구현체에 의존적이지 않은`` 코드를 작성할 수 있다.
 
 
 ## 단점
