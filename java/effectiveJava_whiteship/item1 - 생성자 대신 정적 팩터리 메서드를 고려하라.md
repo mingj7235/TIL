@@ -93,8 +93,8 @@
 3. 반환 타입의 하위 타입 객체를 반환할 수 있다. 
 
     - 가령, 인터페이스를 리턴하는 ``반환 타입을 상위 클래스``를 하고,
-    <br>
-        실제로 리턴할 때는 ``구현체를 리턴``해줄 수도 있다.
+
+        실제로 리턴할 때는 ``구현체를 리턴`` 해줄 수도 있다.
 
     ```java
 
@@ -164,7 +164,63 @@
 
 ## 단점
 
-- 상속을 하려면 public 이나 protected 생성자가 
+1. 생성자가 아닌, 정적 팩토리 메서드를 통해서만 인스턴스를 얻는다면, 해당 클래스를 상속받을 수 없다.
+
+    ```java
+
+    public class Settings {
+
+        private Settings() {}
+
+        private static final Settings SETTINGS = new Settings();
+
+        public static Settings getInstance() {
+            return SETTINGS;
+        }
+    }
+    ```
+
+    > 생성자가 ``private`` 이므로, 절대 Settings 클래스는 상속 할 수 없다. 
+    상속을 위해서는 ``public, protected`` 생성자가 필요하기 때문이다.
+
+    - 정적 팩토리 메소드를 제공하면서, 생성자도 열어놓는 방법도있다 ex> java util 의 ``List`` 클래스
+
+    <br>
+
+2. javaDoc 을 통해 확인하기가 어렵다.
+
+    - 그렇기에 통상적으로 사용하는 네이밍 컨벤션으로 메소드명을 짓는다.
+    <br>
+    ex> of, getInstance 등
+
+    - Class 위에 메모를 통해 표시한다.
+
+    ```java
+        /**
+        * 이 클래스의 인스턴스는 #getInstance()를 통해 사용한다.
+        * @see #getInstance()
+        */
+        public class Settings {
+
+            private boolean useAutoSteering;
+
+            private boolean useABS;
+
+            private Difficulty difficulty;
+
+            private Settings() {}
+
+            private static final Settings SETTINGS = new Settings();
+
+            public static Settings getInstance() {
+                return SETTINGS;
+            }
+
+        }
+    ```
+
+    > javaDoc 만드는 방법
+    <br> Maven 프로젝트인 경우 - ``$ mvn javadoc:javadoc``
 
 
 ## 주의
