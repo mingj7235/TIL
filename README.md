@@ -7,6 +7,7 @@
 ### 1. JAVA 🔑
 
     - Effective Java (whiteship) 강의 정리
+    - Trouble Shooting
 
 <br>
 
