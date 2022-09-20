@@ -2,7 +2,8 @@
 
  ## 구조
 
-![사진](/Users/joshua/Desktop/sc.png)
+![sc](https://user-images.githubusercontent.com/74750901/191272376-ba3a526b-986c-443e-b9d9-159ecf0c5589.png)
+<i>출처 : 정수원님 강의 1-8 AnonymousAuthenticationFilter</i>
 
  - 익명사용자 인증 처리 필터
 
