@@ -30,6 +30,7 @@
 (Session 만료, RememberMe 쿠키를 가지고 요청)
 
 ![스크린샷 2022-09-20 오후 9 52 29](https://user-images.githubusercontent.com/74750901/191268023-2bf283cc-e043-4787-8e36-4259b6cceed1.png)
+<i>출처 : 정수원님 강의 1-7 Remember Me 인증 필터</i>
 
 
 RememberMeServices
