@@ -1,10 +1,10 @@
-# Spring Security - 정수원님 강의 정리 (인프런) part 1
+# Spring Security - 정수원님 강의 정리 (인프런) part 2
 
 ### 정수원님의 ``Spring Security`` part 1 
 
 <br>
 
-Spring Security 기본 API 및 Filter 이해 
+Spring Security 주요 아키텍처 이해 
 
 <br>
 
