@@ -37,12 +37,15 @@
 
 ## 🔑 동작 원리
 
-[]
+![스크린샷 2022-09-22 오후 11 15 45](https://user-images.githubusercontent.com/74750901/191783426-978ad785-d7a3-456f-942f-63af9750bdd5.png)
+<i>출처 : 정수원님 강의 1-10) 세션 제어 필터 : SessionManagementFilter, Concurrent</i>
+
 
 ``SessionManagementFilter``, ``ConcurrentSessionFilter`` 가 맞물려서 동시적 세션제어를 함
 
 
-[]
+![스크린샷 2022-09-22 오후 11 18 51](https://user-images.githubusercontent.com/74750901/191783459-6358f903-3e10-40f1-a582-3c0d3426b42d.png)
+<i>출처 : 정수원님 강의 1-10) 세션 제어 필터 : SessionManagementFilter, Concurrent</i>
 
 SessionManagementFilter
 
