@@ -1,7 +1,7 @@
 # SessionManagementFilter, ConcurrentSessionFilter
 
 
-## SessionManagementFilter
+## 🍎 SessionManagementFilter
 
 - 세션관리
 
@@ -19,8 +19,9 @@
 
     - Always, If_Required, Never, Stateless
 
+<br>
 
-## ConcurrentSessionFilter
+## 🍉 ConcurrentSessionFilter
 
 - 매 요청마다 현재 사용자의 세션 만료 여부를 체크 -> 동시적 세션 처리 
 
@@ -34,18 +35,16 @@
     // - 로그아웃 처리 후 즉시 오류 페이지 응답 "This session has been expired"
 ```
 
-## 동작 원리
+## 🔑 동작 원리
 
 []
 
-SessionManagementFilter, ConcurrentSessionFilter 가 맞물려서 동시적 세션제어를 함
+``SessionManagementFilter``, ``ConcurrentSessionFilter`` 가 맞물려서 동시적 세션제어를 함
 
 
 []
 
 SessionManagementFilter
-
-    - 3가지 클래스를 가진다.
 
     - ConcurrentSessionControlAuthenticationStrategy
 
@@ -53,43 +52,38 @@ SessionManagementFilter
 
     - RegisterSessionAuthenticationStrategy
 
-User 1이 로그인 시도
+## 상황
 
-1. ConcorrentSessionControlAuthenticationStrategy
+``🙋🏻‍♂️ User 1`` 이 로그인 시도
+
+1. ``ConcorrentSessionControlAuthenticationStrategy``
     
-    - session 을 count 한다. 최대 허용 개수를 비교하여 동시 접속 session 을 제어한다.
+    - ``session`` 을 count 한다. 최대 허용 개수를 비교하여 동시 접속 session 을 제어한다.
      
 
-2. ChangeSessionIdAuthenticationStrategy
+2. ``ChangeSessionIdAuthenticationStrategy``
 
     - 세션 고정보호 하는 클래스 (session.changeSessionId())
 
-3. RegisterSessionAuthenticationStrategy
+3. ``RegisterSessionAuthenticationStrategy``
 
     - 사용자의 세션 정보를 등록하는 클래스
 
     - 이 클래스를 통해 Session 을 등록하기 때문에, 이때 session count 가 1이된다.
 
+<br>
 
-User 2가 User1과 동일한 계정으로 로그인 시도 
+``🙋🏻 User 2``가 ``🙋🏻‍♂️ User 1``과 동일한 계정으로 로그인 시도 
 
-1. sessionCount == maxSessions 일 경우 
+1. ``sessionCount == maxSessions`` 일 경우 
     - 인증 실패 전략인 경우 
-        -> User2 에게 인증 실패 예외 (SessionAuthenticationException) 
+        -> User2 에게 인증 실패 예외 (``SessionAuthenticationException``) 
 
     - 세션 만료 전략인경우
-        -> User1의 세션을 만료시킨다. session.expireNow()
+        -> User1의 세션을 만료시킨다. ``session.expireNow()``
         -> User2 는 인증에 성공한다. 
 
-        -> 이 경우, User1 이 다시 로그인할 때, ConcurrentSessionFilter가 사용자의 세션만료를 계속 체크하고, 이 Filter를 통해 session.isExpired()가 감지되어 Logout 이 되고, 세션 만료 응답을 받는다. 
+        -> 이 경우, ``🙋🏻‍♂️ User 1`` 이 다시 로그인할 때, ``ConcurrentSessionFilter``가 사용자의 세션만료를 계속 체크하고, 이 Filter를 통해 ``session.isExpired()``가 감지되어 Logout 이 되고, 세션 만료 응답을 받는다. 
 
+        * ``ConcurrentSessionFilter`` 는 계속 세션 만료를 요청마다 체크한다. 
 
-SessionManagementFilter
-
-    - 3가지 클래스를 가진다.
-
-    - ConcurrentSessionControlAuthenticationStrategy
-
-    - ChangeSessionIdAuthenticationStrategy
-
-    - RegisterSessionAuthenticationStrategy
