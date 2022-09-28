@@ -63,8 +63,10 @@ logging:
 
 ## Container 내부 로깅 저장 경로 확인
 
-[] 
+![스크린샷 2022-09-28 오전 9 27 48](https://user-images.githubusercontent.com/74750901/192661089-d20c8201-23c5-488b-8d2d-e56bb33ef89b.png)
 
 ## EC2 외부 로깅 저장 마운트 확인
 
-[]
+![스크린샷 2022-09-28 오전 9 28 09](https://user-images.githubusercontent.com/74750901/192661107-5b35552a-a1b2-4ed4-b221-23050fbd3883.png)
+
+
