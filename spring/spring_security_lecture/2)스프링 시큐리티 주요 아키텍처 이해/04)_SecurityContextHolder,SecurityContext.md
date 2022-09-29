@@ -40,7 +40,8 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 
 ## 흐름도
 
-[] 사진
+![스크린샷 2022-09-29 오후 9 18 32](https://user-images.githubusercontent.com/74750901/193033105-ac73d801-4e84-4dfe-adf7-24377b89dff1.png)
+<i>출처 : 정수원님 강의 2-4) SecurityContextHolder, SecurityContext </i>
 
 - 인증에 성공한 ``Authentication`` 객체는 ``SecurityContext`` 에 담겨서, ``ThreadLocal`` 에 담기게 된다. 
 
