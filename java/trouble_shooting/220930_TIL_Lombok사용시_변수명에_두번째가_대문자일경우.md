@@ -40,9 +40,14 @@ public class ResponseDto {
 
 - 위와같이 ``ResponseDto`` 의 ``innerClass`` 중 하나를 만들었는데, 아래의 사진과 같은 현상이 생겼다.
 
-[] 사진
+![KakaoTalk_Photo_2022-09-30-23-21-47 001](https://user-images.githubusercontent.com/74750901/193294621-959283d4-5d1e-4ae7-9c3e-0e95dd342e41.png)
 
-[] 사진
+<i>내가 받고 싶은 데이터는 dTime 인데 !!</i>
+
+![KakaoTalk_Photo_2022-09-30-23-21-47 002](https://user-images.githubusercontent.com/74750901/193294626-eec8dc85-d342-45ad-af0e-4b7f7a7991ad.png)
+
+<i>왜 너는 dtime 으로 받아서 null 인것이냐!!</i>
+
 
 - 상황의 설명
 
@@ -58,7 +63,8 @@ public class ResponseDto {
 
 - Lombok 을 이용한 ``@Getter, @Setter`` 의 접근일 경우, 자동으로 카멜 케이스를 이용한 ``getter, setter`` 메소드를 만들 때, ``getDTime(), setDTime()`` 으로 생성하기 때문에 이러한 문제가 발생한 것이다.
 
-[] 사진 
+![스크린샷 2022-09-30 오후 11 36 30](https://user-images.githubusercontent.com/74750901/193294503-17865e02-1b7b-469f-8bf1-a32de540db4c.png)
+
 
 <i>인텔리 제이에서 Structure (단축키 : command + 7) 에서 확인한 Lombok 으로 생성된 Getter, Setter</i>
 
