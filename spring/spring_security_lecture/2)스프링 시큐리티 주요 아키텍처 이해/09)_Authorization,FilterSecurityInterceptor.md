@@ -9,7 +9,8 @@
 
 - 즉, 특정 자원에 접근하기 위해 사용자가 허가 되었는가를 증명하는 것이다.
 
-[] 사진
+![스크린샷 2022-10-01 오후 5 13 47](https://user-images.githubusercontent.com/74750901/193401504-580baf7d-a3d6-4411-9fd5-bce6b6ac415f.png)
+<i>출처 : 정수원님 강의 2-9) Authorization, FilterSecurityInterceptor </i>
 
 - <strong>Authentication</strong>
 
@@ -25,7 +26,8 @@
 
 ### Spring Security 가 지원하는 권한 계층
 
-[] 사진
+![스크린샷 2022-10-01 오후 5 17 59](https://user-images.githubusercontent.com/74750901/193401510-a34e8327-75c2-4f11-9c54-fdb4dc77535b.png)
+<i>출처 : 정수원님 강의 2-9) Authorization, FilterSecurityInterceptor </i>
 
 - 웹 계층 - `/user`
 
@@ -69,7 +71,8 @@
 
 ### 흐름도
 
-[] 사진
+![스크린샷 2022-10-01 오후 5 25 35](https://user-images.githubusercontent.com/74750901/193401519-4417b5db-80b7-4a28-8eba-dc8e52dbc135.png)
+<i>출처 : 정수원님 강의 2-9) Authorization, FilterSecurityInterceptor </i>
 
 - 인증객체는 `SecurityContext` 안에 저장되어 있다.
 
