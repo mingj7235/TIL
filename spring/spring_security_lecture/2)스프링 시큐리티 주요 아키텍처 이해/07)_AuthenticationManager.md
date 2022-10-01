@@ -2,7 +2,8 @@
 
 ## 흐름도
 
-[] 사진
+![스크린샷 2022-10-01 오후 3 55 54](https://user-images.githubusercontent.com/74750901/193397654-cfe948ba-69eb-4e57-88f9-3811ab8b2aad.png)
+<i>출처 : 정수원님 강의 2-7) Authentication Manager </i>
 
 인증 처리하는 `Filter` (`UsernamePasswordAuthenticationFilter`) 로 부터 인증 을 하라는 지시를 받는 클래스
 
