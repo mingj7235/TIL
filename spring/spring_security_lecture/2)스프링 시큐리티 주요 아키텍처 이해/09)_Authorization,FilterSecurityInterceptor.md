@@ -38,7 +38,7 @@
     - 화면 단위가 아닌 메소드 같은 기능 단위의 레벨 보안
 
 
-- 도메인 계층 -user (Access Control List, 접근 제어 목록) 
+- 도메인 계층 - `user` (Access Control List, 접근 제어 목록) 
 
     - 객체 단위의 레벨 보안
 
@@ -48,7 +48,7 @@
 
 <br>
 
-### 개념
+### 📚 개념
 
 - <b>마지막에 위치한 필터</b> 로써 `인증된 사용자에 대하여` 특정 요청의 승인 / 거부 여부를 최종적으로 결정. 즉, 자원의 접근 권한 여부를 체크 하는 것임.
 
@@ -68,8 +68,9 @@
 
 * 인가 라는 것은 결국 `자원에 접근` 이라는 개념이므로 `Access` 라는 단어가 사용된다.
 
+<br>
 
-### 흐름도
+### 💡 흐름도
 
 ![스크린샷 2022-10-01 오후 5 25 35](https://user-images.githubusercontent.com/74750901/193401519-4417b5db-80b7-4a28-8eba-dc8e52dbc135.png)
 <i>출처 : 정수원님 강의 2-9) Authorization, FilterSecurityInterceptor </i>
@@ -88,13 +89,13 @@
 
     - 이 권한 정보가 `null` 이 아닌경우, `AccessDecisionManager` 에게 전달한다.
 
-`AccessDecisionManager`
+- `AccessDecisionManager`
 
     - 최종 심의 결정자.
 
     - 즉, 전달받은 권한 정보를 심의하는데, `AccessDecisionVoter` 에게 전달하여 심의 요청을 한다.
 
-`AccessDecisionVoter`
+- `AccessDecisionVoter`
 
     - 심의를 하여서 `Manager` 에게 승인 / 거부 여부를 전달한다. 
 
