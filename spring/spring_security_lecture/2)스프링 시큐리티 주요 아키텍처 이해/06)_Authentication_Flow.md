@@ -7,7 +7,8 @@
 
 ### Form 인증 방식의 로그인 요청
 
-[] 사진
+![스크린샷 2022-10-01 오후 3 17 10](https://user-images.githubusercontent.com/74750901/193396412-2842a9af-3559-4f50-a4cb-0c6e222b3b8f.png)
+<i>출처 : 정수원님 강의 2-6) Authentication Flow </i>
 
 <br>
 
