@@ -57,3 +57,27 @@ public class FormAuthenticationDetailsSource implements AuthenticationDetailsSou
 
 - 내가 구현한 `WebAuthenticationDetails` 객체를 만들어서 반환
 
+<br>
+
+## SecurityConfig 에 추가
+
+```java
+...
+
+        .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/login_proc")
+
+                .authenticationDetailsSource(authenticationDetailsSource)
+
+                .defaultSuccessUrl("/")
+                .permitAll() 
+        ;
+
+...
+
+
+```
+
+- .authenticationDetailsSource(authenticationDetailsSource) 추가
