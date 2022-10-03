@@ -1,8 +1,9 @@
 # WebAuthenticationDetails, AuthenticationDetailsSource
 
 # 흐름도
+![스크린샷 2022-10-03 오후 1 58 13](https://user-images.githubusercontent.com/74750901/193516673-a9058f41-d606-47d4-904e-d0ce119eb360.png)
 
-[]
+
 
 - 인증 (로그인 시) `username`, `password` 말고 추가 적인 정보를 필요할 때.
 
