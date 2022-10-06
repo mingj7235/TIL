@@ -139,4 +139,5 @@ public class DATAResponse {
 
 ## 성공적으로 받은 객체 (Json 형태)
 
-[]
+![스크린샷 2022-10-06 오후 12 21 55](https://user-images.githubusercontent.com/74750901/194207202-4db31a22-abac-4cfa-85de-dae47b5a9765.png)
+
