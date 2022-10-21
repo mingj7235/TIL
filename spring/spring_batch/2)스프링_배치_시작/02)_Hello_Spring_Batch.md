@@ -3,7 +3,8 @@
 
 ## WORK FLOW
 
-[] 흐름도
+![스크린샷 2022-10-21 오후 10 46 43](https://user-images.githubusercontent.com/74750901/197214428-020f484b-0c86-4458-a1a8-37d2b06c90ea.png)
+
 
 <br>
 
@@ -51,5 +52,8 @@
 
 7. Job 구동 -> Step 실행 -> Tasklet 실행
 
-[] 개념도
+
+![스크린샷 2022-10-21 오후 10 48 15](https://user-images.githubusercontent.com/74750901/197214468-2d3066f8-4cf5-4217-a1df-821a0056b9d9.png)
+
+
 
