@@ -34,5 +34,6 @@
 
 ### 흐름도
 
-[]
+![스크린샷 2022-10-27 오후 10 30 25](https://user-images.githubusercontent.com/74750901/198306566-e83c5b55-413b-49ea-bd31-3a78c4446e89.png)
+
 
