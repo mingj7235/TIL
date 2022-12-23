@@ -61,7 +61,8 @@ Load Balancer Error : 504 Error
 
 ## X-Forwarded-For 헤더
 
---
+![스크린샷 2022-12-23 오후 11 44 19](https://user-images.githubusercontent.com/74750901/209354814-7116099c-9b23-4200-87b0-c66c498039de.png)
+
 
 EC2 는 Private IP address 밖에 볼 수가 없다. 
 
