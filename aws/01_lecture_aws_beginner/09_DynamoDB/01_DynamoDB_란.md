@@ -4,14 +4,14 @@
 
 1. NoSQL 데이터베이스
 
-    - NoSQL 이란, Not Only SQL 의 의미
+    - NoSQL 이란, `Not Only SQL` 의 의미
     - 즉, SQL (RDS)뿐 아니라 다른 형태의 DB 지원
 
 <br>
 
 2. 매우 빠른 쿼리 속도
  
-3. Auto-Scaling 기능 탑재
+3. `Auto-Scaling` 기능 탑재
 
     - Data 기능이 초과될 시, 테이블의 크기가 자동으로 늘어난다.
 
