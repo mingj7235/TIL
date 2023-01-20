@@ -39,4 +39,4 @@
 - Scan 을 사용하는 경우
     - Primary key 가 사용되지 않은 Table, 규모가 작은 Table 에서 사용
 
-    - 즉, 규모가 작은 View Table 같은 경우는 Scan 을 사용하는 것이 이득일 때가 있다.
+    - 즉, View Table 같은 경우는 Scan 을 사용하는 것이 이득일 때가 있다.
