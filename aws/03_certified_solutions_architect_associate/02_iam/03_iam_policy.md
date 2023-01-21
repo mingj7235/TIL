@@ -42,7 +42,7 @@
 
 ## 정책 예시
 
--- photo
+![스크린샷 2023-01-21 오후 5 30 52](https://user-images.githubusercontent.com/74750901/213859736-35d9ff1c-243a-4791-9227-4cb98cd90064.png)
 
 - 예시 해석
 
@@ -53,7 +53,7 @@
     - 다만, 200.100.16.0/20 IP 네트워크로부터의 '함수 생성(CreateFunction)', '함수 삭제(DeleteFunction)' 은 권한이 거부된다. 
 
 
--- photo
+![스크린샷 2023-01-21 오후 5 35 50](https://user-images.githubusercontent.com/74750901/213859755-0982b81a-8790-4680-856f-2ea10e1a3a5f.png)
 
 - 예시 해석
 
