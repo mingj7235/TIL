@@ -23,7 +23,9 @@
 
 ## 액세스 관리
 
---photo
+![스크린샷 2023-01-21 오후 3 16 36](https://user-images.githubusercontent.com/74750901/213846661-1b94a49f-e9e4-474a-8c3a-132733efe957.png)
+출처 : 인프런 - AWS Certified Solutions Architect - Associate 자격증 준비하기
+
 
 - 사용자 (User)
 
