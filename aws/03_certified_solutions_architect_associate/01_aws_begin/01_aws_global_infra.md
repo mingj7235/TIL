@@ -1,6 +1,7 @@
 # AWS Global Infra
 
--- photo
+![스크린샷 2023-01-21 오후 2 51 08](https://user-images.githubusercontent.com/74750901/213846573-85e97ba9-36c0-44a9-9df9-63766c4786ac.png)
+
 
 ## Regions
 
@@ -29,6 +30,9 @@
 
 ## AZ (Availability Zones)
 
+![스크린샷 2023-01-21 오후 2 56 25](https://user-images.githubusercontent.com/74750901/213846587-8d6f686d-736e-46ef-818b-9803ca4de494.png)
+
+
 개념)
 
 - 가용영역이란, `하나 이상의 개별 데이터 센터`
@@ -50,6 +54,9 @@
 
 - 글로벌 배포서비스인 AWS CloudFront, Global Accelerator 에서 대표적으로 사용한다. 
 
+![스크린샷 2023-01-21 오후 2 59 11](https://user-images.githubusercontent.com/74750901/213846601-3f66bb94-52f9-41fd-85a6-40a5e7c649ad.png)
+
+
 - 일반적인 전송 : 사용자가 콘텐츠를 요청하면 서버가 있는 리전의 오리진에서 전송
 
 - 엣지 네트워크 전송 : 
@@ -62,6 +69,8 @@
 - AWS 에서는 전세계 수백개의 엣지 로케이션을 운영중이다.
 
 - 엣지로케이션과 AWS 리전, 가용영역끼리는 고속 네트워크로 연결되어있다. 
+
+
 
 
 
