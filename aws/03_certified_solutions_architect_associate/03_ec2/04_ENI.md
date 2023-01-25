@@ -17,13 +17,15 @@
 
 ## AWS 콘솔에서 확인
 
---photo
+![스크린샷 2023-01-25 오후 9 29 07](https://user-images.githubusercontent.com/74750901/214565372-2498ad99-0f51-4240-9ed2-da79078895cc.png)
 
 <br>
 
 ## ENI 생성
 
---photo 
+![스크린샷 2023-01-25 오후 9 36 13](https://user-images.githubusercontent.com/74750901/214565438-0a4dd904-ed5c-4a10-8fc9-2d67e81fcdc0.png)
 
---photo
+![스크린샷 2023-01-25 오후 9 36 34](https://user-images.githubusercontent.com/74750901/214565452-213e6ad4-280c-4a1f-b498-310e4da5c4a0.png)
+
+
 EC2 에 또다른 ENI 를 연결하려면, 동일 EC2 에 존재할 ENI 와 가용영역 (AZ) 가 동일해야한다. 
