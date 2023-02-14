@@ -14,6 +14,7 @@
 			- Tomcat 은 잘 알려져 있는 Servlet Container 중 하나다. 
 			- 전통적인 아주 기본적인 WEB 의 구조
 			- Servlet Container 를 관리하고 생성하는 것이 전통적이었다.
+			- Servlet Container 가 Servlet 에게 알맞는 Request 를 할당하는 것을 Mapping 하는 것
 		- 자, 그런데 여기서 Spring Container 는 무엇인가?
 			- Servlet Container 뒤에 있는 것이 Spring Container 다.
 			- ![스크린샷 2023-02-14 오후 8 20 39](https://user-images.githubusercontent.com/74750901/218727303-99dca586-f925-4a45-9dc1-4f721c57a378.png)

@@ -37,6 +37,7 @@ Response
 		- Status Code : 상태 코드 값
 		- Status Text : 상태를 설명하는 텍스트
 	- Headers
+		- content-type 정보는 매우 중요하다.
 	- Message Body
 
 ```http
