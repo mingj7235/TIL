@@ -11,8 +11,12 @@
             "id": "9e936c58a828c54c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "01 스프링부트 소개.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "01 스프링부트 소개.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "01 스프링부트 소개.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,12 +113,16 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "01 스프링부트 소개.md"
+          }
         }
       }
     ],
     "currentTab": 0
   },
   "active": "9e936c58a828c54c",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "spring/무제파일.md"
+  ]
 }
