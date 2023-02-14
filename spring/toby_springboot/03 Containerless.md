@@ -16,7 +16,8 @@
 			- Servlet Container 를 관리하고 생성하는 것이 전통적이었다.
 		- 자, 그런데 여기서 Spring Container 는 무엇인가?
 			- Servlet Container 뒤에 있는 것이 Spring Container 다.
-			- photo1
+			- ![스크린샷 2023-02-14 오후 8 20 39](https://user-images.githubusercontent.com/74750901/218727303-99dca586-f925-4a45-9dc1-4f721c57a378.png)
+
 			- Servlet 을 통해 들어온 요청을 Spring 이 받고, 그 내부에 있는 Bean 들이 요청에대한 동작을 하는 것. 
 			- 근데 왜 Servlet Container 를 그냥 Spring Container 가 대체하면 안되는가? **안된다**. 기본적으로 Java 의 WEB 표준 기술을 사용하려면 servlet Container 가 존재해야하기 때문이다.
 			- 그렇기에.. 어플리케이션을 동작시키기 위해서는 Servlet Container 를 무조건 필요로하고, 이것을 띄우는 것에 상당히 많은 공수가 들어간다. 
@@ -27,7 +28,8 @@
 			- 그렇기에 Containerless Web Application Architecture 가 있으면 좋겠다 라는 요청이 나오게 된것 !
 			- Servlet Container 가 필요없다! 라는 말이아니다. 이것을 개발자가 시간을 들여서 적용하는 수고를 제거해주면 좋겠다.. 라는 의미.
 			- 실제로는 Servlet Container 가 존재하고 동작한다. 하지만, 이러한 설정을 개발자가 설정할 필요 없이 하도록 한 것이 Spring boot !
-			- photo 2
+			- ![스크린샷 2023-02-14 오후 8 29 15](https://user-images.githubusercontent.com/74750901/218727395-cbff5469-847a-4a2e-8d8c-4299e87ebc7b.png)
+
 		- Spring boot 에서는, Servlet Container 의 첫 시작을 시키는 것 까지도 제거해버리고, 클래스의 main 메소드를 호출하면 그것이 자동으로 실행되도록 Standalone application 의 방식으로 변경되었다. 엄청난일..!!
 			- Servlet Container 에서 필요한 동작을 main 메소드가 실행되면서 모두 진행되도록 만듬.
 			- 이것이 Containerless !
