@@ -68,3 +68,64 @@ WebServer webServer = serverFactory.getWebServer(servletContext -> {
 webServer.start();
 
 ```
+
+
+### 매핑과 바인딩
+
+위의 코드에서 복잡한 비지니스 로직을 Controller 로 위임
+
+```java
+public class HelloController {  
+  
+    public String hello (String name) {  
+	    // 복잡한 비지니스 로직이라고 치자 ㅎㅎ.. 
+        return "Hello " + name;  
+    }  
+}
+```
+
+
+```java
+ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();  
+WebServer webServer = serverFactory.getWebServer(servletContext -> {  
+  
+   HelloController helloController = new HelloController();  
+  
+   servletContext.addServlet("frontController", new HttpServlet() {  
+      @Override  
+      protected void service(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {  
+         // 인증, 보안, 다국어처리, 각종 공통 기능 (구현했다고 치고)  
+  
+         if (req.getRequestURI().equals("/hello") &&  req.getMethod().equals(HttpMethod.GET.name())) {  
+            String name = req.getParameter("name");  
+  
+            String result = helloController.hello(name); // 복잡한 비지니스 로직은 여기에 위임  
+  
+            resp.setStatus(HttpStatus.OK.value());  
+            resp.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE);  
+            resp.getWriter().println(result);  
+         }  
+         if (req.getRequestURI().equals("/hello") &&  req.getMethod().equals(HttpMethod.POST.name())) {  
+            // post  
+         }  
+  
+         else if (req.getRequestURI().equals("/user")) {  
+            // code for /user  
+         }  
+         else {  
+            resp.setStatus(HttpStatus.NOT_FOUND.value());  
+         }  
+      }  
+   }).addMapping("/*");  
+});  
+webServer.start();
+```
+
+- 이 모든 과정은 스프링을 사용하지 않고 순수 자바코드와 서블릿 웹 기술만을 사용하여 동작시키도록 만들고 있음
+
+매핑 : 웹 요청에 들어있는 정보를 활용하여 어떤 로직을 수행하는 코드를 호출할 것인지를 결정하는 작업
+	-> '/hello' 라는 요청 정보를 활용하여 helloController 에 있는 로직을 수행하도록 결정함
+
+바인딩 : 웹 요청과 응답을 다루는 오브젝트를 컨트롤러에 놓지않고, 파라미터 값으로 넘어온 정보를 순수 자바 메소드의 인자값으로 넘겨주는 행위. 즉, 로직이 올바르게 수행 될 수 있도록, 웹에서 넘어온 요청값을 자바 메소드가 이해할 수 있는 타입으로 변형하여 넘겨 주는 행위. (DTO 를 사용하거나.. 우리가 당연하게 사용하고 있는 행위들의 근본)
+
+
