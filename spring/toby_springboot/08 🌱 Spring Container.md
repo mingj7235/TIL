@@ -52,3 +52,9 @@ String result = helloController.hello(name); // 복잡한 비지니스 로직은
    webServer.start();  
 }
 ```
+
+
+Spring Container 는 Bean 을 딱 하나만 만든다.
+	- 이것이 매우 중요한 것.
+	- 싱글톤 패턴으로 Bean 을 만들고 계속 재사용 시킨다.
+	- 그렇기에, Spring Container 를 Singlton Registry 라고도 한다. 
