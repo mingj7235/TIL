@@ -74,6 +74,8 @@ webServer.start();
 
 위의 코드에서 복잡한 비지니스 로직을 Controller 로 위임
 
+즉, FrontController 가 가장 앞단에서 요청을 받고, 그 요청을 하위 컨트롤러들에게 매핑을 해주는 구조
+
 ```java
 public class HelloController {  
   
