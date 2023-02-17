@@ -39,4 +39,4 @@ public class Application {
 - @Bean : Bean 으로 등록하여 사용
 
 - 하.지.만. 위의 방법, 즉 Java Code 를 사용하여 직접 Bean 을 등록하고, Spring Container 에게 전달 하는 방법은 사용하지 않는다.
-- 바로 다음에 배우게 될 @ComponentScan 을 통해 
+- 바로 다음에 배우게 될 @ComponentScan 을 사용한다.
