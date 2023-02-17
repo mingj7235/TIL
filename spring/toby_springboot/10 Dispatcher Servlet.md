@@ -11,7 +11,7 @@ public static void main(String[] args) {
    applicationContext.refresh();  
 	
 	// 2. DispatchServlet 생성 -> Spring Container 에 등록
-   ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();  
+   ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory(); // Servlet Container 생성
    WebServer webServer = serverFactory.getWebServer(servletContext -> {  
       servletContext.addServlet("dispatcherServlet", new DispatcherServlet(applicationContext)
             ).addMapping("/*");  
@@ -25,7 +25,9 @@ public static void main(String[] args) {
 - 아직 매핑 정보는 넣지 않은 상태
 - 여기서 어노테이션 매핑 정보를 사용하여 DispatcherServlet 은 요청과 컨트롤러를 매핑한다.
 
-- 위의 코드는 1
+- 위의 코드는 2가지로 분리된다.
+	- 1. Spring Container 를 생성하고, Bean 을 등록하여 초기화 하는 부분
+	- 2. Servlet Container 를 코드에서 생성하고, Front Controller 역할을 하는 Dispatcher Servlet 을 등록하는 Servlet Container 초기화 하는 부분 
 
 
 
