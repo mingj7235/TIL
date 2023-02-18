@@ -36,7 +36,7 @@ public class Application {
 ```
 
 - @Configuration : Bean 들이 등록되어있다고 Spring Container 에게 알림. 
-- @Bean : Bean 으로 등록하여 사용
+- 팩토리 메소드로 만들고, @Bean 어노테이션을 통해 Bean 으로 등록한것
 
 - 하.지.만. 위의 방법, 즉 Java Code 를 사용하여 직접 Bean 을 등록하고, Spring Container 에게 전달 하는 방법은 사용하지 않는다.
-- 바로 다음에 배우게 될 @ComponentScan 을 사용한다.
+- 바로 다음에 배우게 될 [[@Component 스캔]] 을 사용한다.
