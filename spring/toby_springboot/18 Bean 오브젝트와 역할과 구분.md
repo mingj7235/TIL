@@ -43,4 +43,47 @@ Spring Container 가 관리하는 Bean 은 크게 '컨테이너 인프라스트�
 - @Configuration 클래스 내부에서 @Bean 을 통해 등록되는 어플리케이션 인프라스트럭쳐 빈은 AutoConfiguration 이라는 자동 구성 정보 를 통해 Bean 으로 읽혀진다.
 
 
+## 인프라 빈 구성정보의 분리
 
+TomcatServletWebServerFactory 즉, Servlet Container 를 만드는 것과
+DispatcherServlet 즉, Dispatcher Servlet 을 만드는 것은 분리가 되어야한다.
+
+개발자가 어플리케이션을 만드는 것과는 관심사가 분리 되어야한다.
+
+@ComponentScan 이 붙은 main 메소드가 있는 클래스와 같은 패키지나 하위 패키지에 있다면, 
+@Configuration 또한 @Component 이므로 Component Scanner 로 인해 스캔 대상이 되어 Bean 등록이 될 것이다.
+하지만, 이렇게 된다면 하위 패키지에 존재해야하며, 개발자의 관심사에 들어가게 되어 관리 대상이 된다.
+
+그러므로, 분리가 되어야 한다. 분리가 되어서도 구성정보가 어플리케이션이 시작되면서 Bean으로 등록이 되어야 한다. 
+
+어떻게 하면될까?
+
+비밀은 바로 @Import({추가하고 싶은 어노테이션.class}) 어노테이션 이다.
+@Import() 의 인자값에 @Component 이나, @Component 를 메타 어노테이션으로 붙은 클래스를 넣으면, 구성정보에 직접 추가할 수 있다. 
+
+```java
+@Retention(RetentionPolicy.RUNTIME)  
+@Target(ElementType.TYPE)  
+@Configuration  
+@ComponentScan  
+@Import(Config.class)  
+public @interface MySpringBootApplication {    
+}
+
+------------------------------------------ 
+
+@Configuration  
+public class Config {  
+    @Bean  
+    public ServletWebServerFactory servletWebServerFactory () {  
+        return new TomcatServletWebServerFactory();  
+    }  
+    @Bean  
+    public DispatcherServlet dispatcherServlet () {  
+        return new DispatcherServlet();  
+    }  
+}
+
+```
+
+@AutoConfiguration 
