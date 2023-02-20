@@ -86,4 +86,55 @@ public class Config {
 
 ```
 
-@AutoConfiguration 
+### 인프라 빈 구성정보 Refactor
+
+- Config 클래스가 가지고 있던 두개의 Bean 을 분리
+
+```java
+@Configuration  
+public class TomcatWebServerConfiguration {  
+    @Bean  
+    public ServletWebServerFactory servletWebServerFactory () {  
+        return new TomcatServletWebServerFactory();  
+    }  
+}
+
+----------------------------------------------------
+
+@Configuration  
+public class DispatcherServletConfig {  
+    @Bean  
+    public DispatcherServlet dispatcherServlet () {  
+        return new DispatcherServlet();  
+    }  
+  
+}
+
+```
+
+- @MySpringBootApplication 에서 @Import 관심사를 다른 클래스로 분리
+
+```java
+@Retention(RetentionPolicy.RUNTIME)  
+@Target(ElementType.TYPE)  
+@Import({DispatcherServletConfig.class, TomcatWebServerConfiguration.class})  
+public @interface EnableMyAutoConfiguration {  
+  
+}
+```
+
+- 최종 @MySpringBootApplication
+
+```java
+@Retention(RetentionPolicy.RUNTIME)  
+@Target(ElementType.TYPE)  
+@Configuration  
+@ComponentScan  
+@EnableMyAutoConfiguration  
+public @interface MySpringBootApplication {  
+  
+}
+```
+
+
+@MySpringBootApplication 은 @Configuration 과 @ComponentScan 의 Composed Annotation 이며, @EnableMyAutoConfiguration 을 메타 어노테이션으로 가지고 있다.
