@@ -35,3 +35,5 @@ public class TomcatWebServerConfiguration {
 	- 바꾸지 않아도 동작하지만, 구성정보 Bean 에는 @AutoConfiguration 을 붙여주는 것이 관례기 때문.
 
 
+## @Configuration 이 붙은 클래스의 특별한 동작 방식
+
