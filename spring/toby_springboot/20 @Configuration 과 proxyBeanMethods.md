@@ -142,3 +142,76 @@ title: 테스트가 성공한다.
 
 ````
 
+
+### Proxy 는 어떻게 동작하는가 ?
+
+```java
+static class MyConfigProxy extends MyConfig {  
+    private Common common;  
+    @Override  
+    Common common() {  
+        if (this.common == null) this.common = super.common();  
+  
+        return this.common;  
+    }  
+}
+```
+
+- java 코드로 Spring 이 동작하는 방식을 흉내낸것. 
+
+````ad-note
+title: Test3
+<br>
+
+~~~java
+@Test  
+void proxyCommonMethod() {  
+    MyConfigProxy myConfigProxy = new MyConfigProxy();  
+  
+    Bean1 bean1 = myConfigProxy.bean1();  
+    Bean2 bean2 = myConfigProxy.bean2();  
+  
+    Assertions.assertThat(bean1.common).isSameAs(bean2.common);  
+}
+~~~
+
+<br>
+
+```ad-success
+title: 테스트가 성공한다
+
+- 위에서 만든 Proxy 가 동작하여, Common 을 캐싱하여 하나만 사용하도록 보증함.
+- Spring 에서 사용되는 @Configuration 이 붙은 클래스에서 따로 proxyBeanMethod 를 설정해주지 않으면 true 이고, 이 말은 위와같이 proxy 로 동작되어 Bean 으로 등록이 된다는 것
+- 그렇게 하여, 딱 하나의 Bean 만이 생성되도록. 아무리 그것을 호출 해도, 딱 하나만이 생성되도록 동작하게 하는 Spring 의 동작 원리
+```
+
+````
+
+
+### @Configuration(proxyBeanMethods = false) 를 지정하는 이유
+
+- 점차 @Configuration 에 proxyBeanMethods 를 false 로 지정하는 경우가 많아졌다. 
+- 해당 어노테이션이 달린 클래스에서 생성되는 Bean 메소드를 통해 Bean 오브젝트를 만들때, 또 다른 Bean 메소드를 호출해서 의존 오브젝트를 가져오도록 코드를 작성하지 않았다면 굳이 proxy 매번 만들 필요가 없기 때문이다.
+- @Bean 메소드가 또다른 @Bean 메소드를 호출하지 않고, 그 자체로 @Bean 을 생성하는 것으로 끝난다면, false 로 지정하는 것이 경제적
+
+```ad-info
+title : SchedulingConfiguration 코드
+
+<br>
+
+~~~java
+@Configuration(proxyBeanMethods = false)  
+@Role(BeanDefinition.ROLE_INFRASTRUCTURE)  
+public class SchedulingConfiguration {  
+  
+   @Bean(name = TaskManagementConfigUtils.SCHEDULED_ANNOTATION_PROCESSOR_BEAN_NAME)  
+   @Role(BeanDefinition.ROLE_INFRASTRUCTURE)  
+   public ScheduledAnnotationBeanPostProcessor scheduledAnnotationProcessor() {  
+      return new ScheduledAnnotationBeanPostProcessor();  
+   }  
+  
+}
+~~~
+```
+- 마찬가지로 여기에도 @Configuration(proxyBeanMethods = false) 되어있다.
+- @Bean 메소드에서 다른 @Bean 메소드를 의존하고 있지 않기 때문이다. 
