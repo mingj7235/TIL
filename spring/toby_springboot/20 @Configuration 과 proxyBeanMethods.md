@@ -37,3 +37,8 @@ public class TomcatWebServerConfiguration {
 
 ## @Configuration 이 붙은 클래스의 특별한 동작 방식
 
+@Configuration 은 특별하다!
+
+- 학습 테스트 (기술 이해와 학습을 위해 만든 테스트)
+```
+```
