@@ -87,6 +87,26 @@ title: Spring boot 에서 추가로 제공되는 기술
 ## @Value
 
 ```ad-info
+title: @Value 의 비밀
 
+~~~java
+@Value("${contextPath}")  
+String contextPath;
+~~~
+
+- 위의 코드를 통해 property 를 가져오기 위해서 어떤 작업이 있어야 하는가?
+
+~~~java
+@FunctionalInterface  
+public interface BeanFactoryPostProcessor {  
+  
+
+    void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException;  
+  
+}
+~~~
+
+- BeanFactoryPostProcessor 라는 후처리기를 bean 으로 등록해야한다.
 
 ```
+
