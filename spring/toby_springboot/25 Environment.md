@@ -47,7 +47,8 @@ title: step 3. @Conditional 조건 체크 - @Bean 조건 체크
 
 ## Environment Abstraction - Properties (Environment 추상화)
 
--- photo
+
+![스크린샷 2023-03-01 오후 6 48 20](https://user-images.githubusercontent.com/74750901/222123305-3b271d5b-c16c-45b2-b241-34e0e0fe5130.png)
 
 
 ```ad-info
