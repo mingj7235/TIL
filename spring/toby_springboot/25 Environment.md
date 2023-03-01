@@ -45,8 +45,42 @@ title: step 3. @Conditional 조건 체크 - @Bean 조건 체크
 
 
 
-## Environment Abstraction - Properties
+## Environment Abstraction - Properties (Environment 추상화)
 
 -- photo
+
+
+```ad-info
+title: Standard Environment
+
+- System Properties : JAVA 에서 기본적으로 제공하는 프로퍼티. 커맨드라인에서 지정가능
+
+- System Environment Variables : OS 에 환경변수를 미리 세팅하고 사용하는 방법
+```
+
+```ad-info
+title: Standard Servlet Environment
+
+- WEB 환경일때 사용하는 것들
+
+- ServletConfig Parameters : 서블릿을 사용하면 xml 이나 서블릿 초기화 코드에 지정하여 사용하는 것. ServletConfig 레벨에서 파라미터로 사용
+
+- ServletContext Parameters : ServletContext 레벨에서 파라미터로 사용
+ 
+- JNDI : JAVA 에서 사용하는 네이밍과 디렉토리를 제공하는 표준이지만 잘 사용되지 않음 
+
+```
+
+Standard Environment 와 Standard Servlet Environment 는 Spring 에서 제공되었던 기술들
+
+```ad-info
+title: Spring boot 에서 추가로 제공되는 기술
+
+- application.properties, xml, yml : 환경 변수를 제공하기 위한 파일 형식
+
+```
+
+
+환경 설정 방법들에 우선순위가 있다. 우선순위가 먼저인 것이 먼저 적용이된다. 
 
 
