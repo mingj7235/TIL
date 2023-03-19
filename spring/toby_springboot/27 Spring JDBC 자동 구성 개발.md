@@ -118,8 +118,12 @@ public class DataSourceTest {
 title: JDBC Template 및 JdbcTransactionManager 적용
 
 - JDBC Template 이란?
-	- SQL 문을 JAVA 코드로 간결하게 사용하도록 해주는 
+	- SQL 문을 JAVA 코드로 간결하게 사용하도록 해주는 템플릿 클래스
+
+<br>
+
 - JdbcTransactionManager
+	- JDBC 를 사용하는 클래스의 트랜잭션 관리를 스프링의 추상화를 통해 편리하게 해주는 Bean
 
 ```ad-info
 title: JDBC Template 
