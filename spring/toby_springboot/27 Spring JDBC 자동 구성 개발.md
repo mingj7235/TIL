@@ -114,3 +114,18 @@ public class DataSourceTest {
 
 ## 📚 Step 2
 
+````ad-note
+title: JDBC Template 및 JdbcTransactionManager 적용
+
+- JDBC Template 이란?
+	- SQL 문을 JAVA 코드로 간결하게 사용하도록 해주는 
+- JdbcTransactionManager
+
+```ad-info
+title: JDBC Template 
+
+- SQL 문을 JAVA 코드로 간결하게 사용할 수 있는 
+```
+
+
+```
