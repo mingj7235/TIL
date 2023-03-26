@@ -31,3 +31,98 @@
 
 - FlowStep
 	- Step 내에서 Flow 를 실행하도록 한다. 
+<br>
+
+## 3. Api 설정에 따른 각 Step 생성
+
+
+```ad-note
+title: TaskletStep - 직접 생성한 Tasklet 실행
+
+
+~~~java
+public class CustomTasklet implements Tasklet {  
+  
+    @Override  
+    public RepeatStatus execute(final StepContribution contribution, final ChunkContext chunkContext) throws Exception {  
+  
+        System.out.println("step2 was executed by customTasklet");  
+  
+        return RepeatStatus.FINISHED;  
+    }  
+  
+}
+~~~
+
+- custom 으로 만든 tasklet class
+
+<br>
+
+~~~java
+@Bean  
+public Step step1() {  
+    return stepBuilderFactory.get("step1")  
+            .tasklet(new CustomTasklet())  
+            .build();  
+}
+~~~
+
+- 직접 Tasklet 을 구현해서 넣을 수 있음
+
+```
+
+
+```ad-note
+title: TaskletStep - ChunkOrientedTasklet 실행
+
+~~~java
+@Bean  
+public Step chunkOrientedStep () {  
+  
+    return stepBuilderFactory.get("chunkOriented")  
+            .<String, String> chunk(100)  
+            .reader(reader())  
+            .writer(writer())  
+            .build();  
+}
+~~~
+
+- Spring Batch 가 미리 제공하는 청크지향 Step 
+```
+
+
+```ad-note
+title: JobStep 실행
+
+~~~java
+@Bean  
+public Step jobStep () {  
+  
+    return stepBuilderFactory.get("jobStep")  
+            .job(job())  
+            .launcher(jobLoader)  
+            .parametersExtractor(jobParameterExtractor())  
+            .build();  
+}
+~~~
+
+- Step 에서 Job 을 실행 
+```
+
+
+```ad-note
+title: TaskletStep - FlowStep 실행
+
+~~~java
+@Bean  
+public Step flowStep () {  
+  
+    return stepBuilderFactory.get("flowStep")  
+            .flow(myFlow())  
+            .build();  
+}
+~~~
+
+- Step 에서 Flow 를 실행 
+```
+
