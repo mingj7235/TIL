@@ -21,6 +21,7 @@
     - 이전과 동일한 Job + JobParameter 로 실행할 경우 이미 존재하는 JobInstance 리턴
 
         - 내부적으로 JobName + jobKey (jobParameters 의 해시값) 을 가지고 JobInstance 객체를 얻는다.
+        - 그러므로, jobParameters 는 항상 다른 값이어야햔다. (그래서 실행되는 시간 값을 parameter 로 쓰는 경우가 많음)
 
 - Job 과는 1:M 관계다 
 
