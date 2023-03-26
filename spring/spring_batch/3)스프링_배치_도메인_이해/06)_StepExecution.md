@@ -12,7 +12,7 @@
 	- 설정을 통해 Job 이 재시작할 때 성공한 Step 도 재실행 할 수 있다.
 
 - 이전 단계 Step 이 실패해서 현재 Step 을 실행하지 않았다면 StepExecution 을 생성하지 않는다. `Step 이 실제로 시작되었을 때만 StepExecution 을 생성한다.`
-	- 실패하더라도 StepExecution 은 생성되지만, 시작되지 않았을 때
+	- 실패하더라도 StepExecution 은 생성되지만, 시작되지 않았을 때는 생성되지 않는다.
 
 - JobExecution 과의 관계 
 	- Step 의 StepExecution 이 `모두 정상적으로 완료되어야` JobExecution 이 정상적으로 완료된다.
