@@ -10,7 +10,9 @@
 ## 2. 생성 및 바인딩
 
 - 어플리케이션 실행 시 주입 하는 방법
-	- `java -jar LogBatch.jar requestDate=20230312`
+	- `java -jar LogBatch.jar {parameterKey1}={parameterValue1} {parameterKey2}={parameterValue2}`
+	- ex> java -jar Batch.jar name=user1 seq(long)=2L date(date)=2021/01/01
+		- 괄호 안의 long, date 는 타입을 의미한다. 
 
  - 코드로 생성
 	 - `JobParameterBuilder, DefaultJobParametersConverter`
